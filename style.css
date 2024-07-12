@@ -11,6 +11,43 @@ h1 {
     text-shadow: 2px 2px aquamarine;
 }
 
+.myLibrary {
+    display: grid;
+    grid-template-columns: minmax(200px, 1fr) minmax(800px, 4fr);
+    grid-template-rows: minmax(600px, 1fr);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input,
+select {
+    appearance: none;
+    font-family: inherit;
+    font-size: 100%;
+    padding: 5px 10px;
+    margin: 10px;
+    border: 2px solid blue;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px aquamarine;
+}
+
+input[type="submit"] {
+    font-weight: 700;
+    padding: 5px 15px;
+    margin: 10px;
+}
+
+input .radio {
+    display: flex;
+}
+
+input[type="radio"] {
+    padding: 10px;
+}
+
 #bookshelf {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -19,7 +56,7 @@ h1 {
     /* grid-auto-rows: repeat(auto-fit, minmax(250px, 1fr)); */
 }
 
-.card {
+#bookshelf div {
     padding: 10px;
     margin: 10px;
     border: 2px solid blue;
