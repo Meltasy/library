@@ -61,7 +61,7 @@ function createBookCard(book, idx) {
     let toggleReadBtn = document.createElement("button");
     if (book.isRead === true) {
         toggleReadBtn.textContent = `Haven't read`;
-    } else {
+    } else if (book.isRead === false) {
         toggleReadBtn.textContent = `Have read`;
     }
     toggleReadBtn.addEventListener("click", () => {
@@ -115,14 +115,14 @@ addBtn.addEventListener("click", (event) => {
 });
 
 let myLibrary = [
-    new Book("The Garden of Evening Mists", "Tan Twan Eng", "historical fiction", 348, true),
-    new Book("The Gift of Rain", "Tan Twan Eng", "historical fiction", 508, true),
-    new Book("Au revoir là-haut", "Pierre Lemaitre", "historical fiction", 624, true),
-    new Book("Le grand monde", "Pierre Lemaitre", "historical fiction", 756, false),
-    new Book("The Three-Body Problem", "Ci Xin Liu", "science-fiction", 424, true),
-    new Book("The Dark Forest", "Ci Xin Liu", "science-fiction", 550, true),
-    new Book("Un si bel horizon", "Françoise Bourdin", "fitcion", 285, false),
-    new Book("Face à la mer", "Françoise Bourdin", "fitcion", 334, false),
+    new Book("The Garden of Evening Mists", "Tan Twan Eng", "Historical Fiction", 348, true),
+    new Book("The Gift of Rain", "Tan Twan Eng", "Historical Fiction", 508, true),
+    new Book("Au revoir là-haut", "Pierre Lemaitre", "Historical Fiction", 624, true),
+    new Book("Le grand monde", "Pierre Lemaitre", "Historical Fiction", 756, false),
+    new Book("The Three-Body Problem", "Ci Xin Liu", "Science-Fiction", 424, true),
+    new Book("The Dark Forest", "Ci Xin Liu", "Science-Fiction", 550, true),
+    new Book("Un si bel horizon", "Françoise Bourdin", "Fiction", 285, false),
+    new Book("Face à la mer", "Françoise Bourdin", "Fiction", 334, false),
 ];
 
 updateBookshelf();
