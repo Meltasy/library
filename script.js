@@ -121,8 +121,8 @@ let myLibrary = [
     new Book("Le grand monde", "Pierre Lemaitre", "Historical Fiction", 756, false),
     new Book("The Three-Body Problem", "Ci Xin Liu", "Science-Fiction", 424, true),
     new Book("The Dark Forest", "Ci Xin Liu", "Science-Fiction", 550, true),
-    new Book("Un si bel horizon", "Françoise Bourdin", "Fiction", 285, false),
-    new Book("Face à la mer", "Françoise Bourdin", "Fiction", 334, false),
+    new Book("Un si bel horizon", "Françoise Bourdin", "Drama", 285, false),
+    new Book("Face à la mer", "Françoise Bourdin", "Drama", 334, false),
 ];
 
 updateBookshelf();
