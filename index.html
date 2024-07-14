@@ -8,42 +8,45 @@
     <title>Library</title>
 </head>
 <body>
-    <h1>My bookshelf</h1>
     <div class="myLibrary">
-        <div class="form">
-            <form action="/library" method="get">
-                <label for="title">Title:</label>
-                <input type="text" id="title" name="title" />
-                <label for="author">Author:</label>
-                <input type="text" id="author" name="author" />
-                <label for="genre">Genre:</label>
-                <select id="genre" name="genre">
-                    <option value="Historical Fiction">Historical Fiction</option>
-                    <option value="Comedy">Comedy</option>
-                    <option value="Romance">Romance</option>
-                    <option value="Detective">Detective</option>
-                    <option value="Horror">Horror</option>
-                    <option value="Fantasy">Fantasy</option>
-                    <option value="Science-fiction">Science-Fiction</option>
-                    <option value="Mystery">Mystery</option>
-                    <option value="Thriller">Thriller</option>
-                    <option value="Adventure">Adventure</option>
-                    <option value="Drama">Drama</option>
-                </select>
-                <label for="numPages">How many pages are there?</label>
-                <input type="tel" id="numPages" name="numPages"/>
-                <div class="radio">
-                    <p>Have you read it?</p>
-                    <input type="radio" id="haveRead" name="isRead" value="Yes" checked />
-                    <label for="haveRead">Yes</label>
-                    <input type="radio" id="notRead" name="isRead" value="No" />
-                    <label for="notRead">No</label>
-                </div>
-            </form>
-            <input type="submit" value="Submit" onclick="addBookToLibrary()" />
+        <div class="header">
+            <h1>My bookshelf</h1>
+            <button id="showForm">+</button>
+            <dialog>
+                <form method="dialog">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title" />
+                    <label for="author">Author:</label>
+                    <input type="text" id="author" name="author" />
+                    <label for="genre">Genre:</label>
+                    <select id="genre" name="genre">
+                        <option value="Historical Fiction">Historical Fiction</option>
+                        <option value="Comedy">Comedy</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Detective">Detective</option>
+                        <option value="Horror">Horror</option>
+                        <option value="Fantasy">Fantasy</option>
+                        <option value="Science-Fiction">Science-Fiction</option>
+                        <option value="Mystery">Mystery</option>
+                        <option value="Thriller">Thriller</option>
+                        <option value="Adventure">Adventure</option>
+                        <option value="Drama">Drama</option>
+                    </select>
+                    <label for="numPages">How many pages are there?</label>
+                    <input type="number" id="numPages" name="numPages" />
+                    <label for="isRead">Have you read this book?</label>
+                    <select id="isRead" name="isRead">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="buttons">
+                        <button type="submit" id="addBtn">Add to bookshelf</button>
+                        <button type="button" id="cancelBtn">Cancel</button>
+                    </div>
+                </form>
+            </dialog>
         </div>
-        <div id="bookshelf">
-        </div>
+        <div id="bookshelf"></div>
     </div>
 </body>
 </html>
