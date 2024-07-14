@@ -103,7 +103,12 @@ addBtn.addEventListener("click", (event) => {
     const author = document.querySelector("#author").value;
     const genre = document.querySelector("#genre").value;
     const numPages = document.querySelector("#numPages").value;
-    const isRead = document.querySelector("#isRead").value;
+    const isReadText = document.querySelector("#isRead").value;
+    if (isReadText === "Yes") {
+        isRead = true;
+    } else if (isReadText === "No") {
+        isRead = false;
+    }
     if (title ===  null || title === "" || author === null || author === "" || numPages === null || numPages === "") {
         alert("Please complete all of the fields.");
         return false;
