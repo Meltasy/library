@@ -1,10 +1,12 @@
-function Book(title, author, genre, numPages, isRead) {
-    this.title = title;
-    this.author = author;
-    this.genre = genre;
-    this.numPages = numPages;
-    this.isRead = isRead;
-    this.toggleRead = () => {
+class Book {
+    constructor(title, author, genre, numPages, isRead) {
+        this.title = title;
+        this.author = author;
+        this.genre = genre;
+        this.numPages = numPages;
+        this.isRead = isRead;
+    };
+    toggleRead() {
         this.isRead = !this.isRead;
     };
 }
