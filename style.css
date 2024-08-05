@@ -62,28 +62,27 @@ form {
 }
 
 input,
-select {
+select,
+button {
     appearance: none;
     font-family: inherit;
     font-size: 100%;
     color: inherit;
     padding: 5px 10px;
-    margin: 10px;
     border: 2px solid var(--primary-colour);
     border-radius: 10px;
     box-shadow: 2px 2px 2px 2px var(--primary-colour-shadow);
 }
 
+input,
+select,
+.buttons button {
+    margin: 10px;
+}
+
 div button {
-    appearance: none;
-    font-family: inherit;
-    font-size: 100%;
-    color: inherit;
-    padding: 5px 10px;
     margin-right: 10px;
-    border: 2px solid var(--primary-colour);
-    border-radius: 10px;
-    box-shadow: 2px 2px 2px 2px var(--primary-colour-shadow);
+    margin-bottom: 10px;
 }
 
 input:focus,
