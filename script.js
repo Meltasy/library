@@ -106,7 +106,7 @@ function showErrorMsg() {
         titleError.className = "error active";
     }
     if (titleInput.validity.patternMismatch) {
-        titleError.textContent = "Please use a latin alphabet.";
+        titleError.textContent = "Please use the Roman alphabet.";
         titleError.className = "error active";
     }
     if (authorInput.validity.valueMissing) {
@@ -114,7 +114,7 @@ function showErrorMsg() {
         authorError.className = "error active";
     }
     if (authorInput.validity.patternMismatch) {
-        authorError.textContent = "Please use a latin alphabet.";
+        authorError.textContent = "Please use the Roman alphabet.";
         authorError.className = "error active";
     }
     if (genreInput.validity.valueMissing) {
