@@ -105,8 +105,16 @@ function showErrorMsg() {
         titleError.textContent = "Please complete the title.";
         titleError.className = "error active";
     }
+    if (titleInput.validity.patternMismatch) {
+        titleError.textContent = "Please use a latin alphabet.";
+        titleError.className = "error active";
+    }
     if (authorInput.validity.valueMissing) {
         authorError.textContent = "Please complete the author.";
+        authorError.className = "error active";
+    }
+    if (authorInput.validity.patternMismatch) {
+        authorError.textContent = "Please use a latin alphabet.";
         authorError.className = "error active";
     }
     if (genreInput.validity.valueMissing) {
@@ -230,5 +238,3 @@ let myLibrary = [
 ];
 
 updateBookshelf();
-
-console.log(myLibrary);

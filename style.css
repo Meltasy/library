@@ -96,8 +96,7 @@ select:focus {
     box-shadow: 2px 2px 2px 2px var(--secondary-colour-shadow);
 }
 
-select:invalid,
-input:invalid {
+select:invalid {
     color: var(--hint-text-colour);
 }
 
