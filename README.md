@@ -8,3 +8,4 @@ This is a mini project to practice my skills:
 * using objects and object constructors in js
 * including various functions in js
 * refactoring constructors to use class
+* including validation with html and js

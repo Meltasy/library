@@ -89,6 +89,100 @@ const dialog = document.querySelector("dialog");
 const form = document.querySelector("form");
 const showForm = document.querySelector("#showForm");
 const cancelBtn = document.querySelector("#cancelBtn");
+const titleInput = form.querySelector("#title");
+const authorInput = form.querySelector("#author");
+const genreInput = form.querySelector("#genre");
+const numPagesInput = form.querySelector("#numPages");
+const isReadInput = form.querySelector("#isRead");
+const titleError = form.querySelector("#title + span.error");
+const authorError = form.querySelector("#author + span.error");
+const genreError = form.querySelector("#genre + span.error");
+const numPagesError = form.querySelector("#numPages + span.error");
+const isReadError = form.querySelector("#isRead + span.error");
+
+function showErrorMsg() {
+    if (titleInput.validity.valueMissing) {
+        titleError.textContent = "Please complete the title.";
+        titleError.className = "error active";
+    }
+    if (authorInput.validity.valueMissing) {
+        authorError.textContent = "Please complete the author.";
+        authorError.className = "error active";
+    }
+    if (genreInput.validity.valueMissing) {
+        genreError.textContent = "Please choose a genre.";
+        genreError.className = "error active";
+    }
+    if (numPagesInput.validity.rangeUnderflow) {
+        numPagesError.textContent = "The number must be more than 10.";
+        numPagesError.className = "error active";
+    }
+    if (numPagesInput.validity.rangeOverflow) {
+        numPagesError.textContent = "The number must be less than 2000.";
+        numPagesError.className = "error active";
+    }
+    if (numPagesInput.validity.valueMissing) {
+        numPagesError.textContent = "Please enter a number.";
+        numPagesError.className = "error active";
+    }
+    if (isReadInput.validity.valueMissing) {
+        isReadError.textContent = "Please answer the question.";
+        isReadError.className = "error active";
+    }
+}
+
+function removeErrorMsg() {
+    titleError.textContent = "";
+    titleError.className = "error";
+    authorError.textContent = "";
+    authorError.className = "error";
+    genreError.textContent = "";
+    genreError.className = "error";
+    numPagesError.textContent = "";
+    numPagesError.className = "error";
+    isReadError.textContent = "";
+    isReadError.className = "error";
+}
+
+titleInput.addEventListener("input", () => {
+    if (titleInput.validity.valid) {
+        removeErrorMsg();
+    } else {
+        showErrorMsg();
+    }
+});
+
+authorInput.addEventListener("input", () => {
+    if (authorInput.validity.valid) {
+        removeErrorMsg();
+    } else {
+        showErrorMsg();
+    }
+});
+
+genreInput.addEventListener("input", () => {
+    if (genreInput.validity.valid) {
+        removeErrorMsg();
+    } else {
+        showErrorMsg();
+    }
+});
+
+numPagesInput.addEventListener("input", () => {
+    if (numPagesInput.validity.valid) {
+        removeErrorMsg();
+    } else {
+        showErrorMsg();
+    }
+});
+
+isReadInput.addEventListener("input", () => {
+    if (isReadInput.validity.valid) {
+        removeErrorMsg();
+    } else {
+        showErrorMsg();
+    }
+});
 
 showForm.addEventListener("click", () => {
     dialog.showModal();
@@ -97,28 +191,31 @@ showForm.addEventListener("click", () => {
 cancelBtn.addEventListener("click", () => {
     dialog.close();
     form.reset();
+    removeErrorMsg();
 })
 
 addBtn.addEventListener("click", (event) => {
-    event.preventDefault();
-    const title = document.querySelector("#title").value;
-    const author = document.querySelector("#author").value;
-    const genre = document.querySelector("#genre").value;
-    const numPages = document.querySelector("#numPages").value;
-    const isReadText = document.querySelector("#isRead").value;
-    if (isReadText === "Yes") {
-        isRead = true;
-    } else if (isReadText === "No") {
-        isRead = false;
+    if (!titleInput.validity.valid || !authorInput.validity.valid || !genreInput.validity.valid || !numPagesInput.validity.valid || !isReadInput.validity.valid) {
+        showErrorMsg();
+        event.preventDefault();
+    } else {
+        event.preventDefault();
+        const title = titleInput.value;
+        const author = authorInput.value;
+        const genre = genreInput.value;
+        const numPages = numPagesInput.value;
+        const isReadText = isReadInput.value;
+        if (isReadText === "Yes") {
+            isRead = true;
+        } else if (isReadText === "No") {
+            isRead = false;
+        }
+        dialog.close();
+        form.reset();
+        removeErrorMsg();
+        addBookToLibrary(title, author, genre, numPages, isRead);
+        updateBookshelf();
     }
-    if (title ===  null || title === "" || author === null || author === "" || numPages === null || numPages === "") {
-        alert("Please complete all of the fields.");
-        return false;
-    }
-    dialog.close();
-    form.reset();
-    addBookToLibrary(title, author, genre, numPages, isRead);
-    updateBookshelf();
 });
 
 let myLibrary = [
